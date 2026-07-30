@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <ExecutablePath>$(MY_LIB)\EPOS-3.7R1_220407\bin;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>$(MY_LIB)\EPOS-3.7R1_220407\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(MY_LIB)\EPOS-3.7R1_220407\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>EposCmd64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <DelayLoadDLLs>EposCmd64.lib;%(DelayLoadDLLs)</DelayLoadDLLs>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>
