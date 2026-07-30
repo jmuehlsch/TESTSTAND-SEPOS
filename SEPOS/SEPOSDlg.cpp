@@ -132,6 +132,8 @@ BEGIN_MESSAGE_MAP(CSEPOSDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_SAVE_DATA_VEL, &CSEPOSDlg::OnBnClickedSaveDataVel)
 	ON_BN_CLICKED(IDC_SAVE_DATA_POS, &CSEPOSDlg::OnBnClickedSaveDataPos)
 	ON_BN_CLICKED(IDC_EPOS_ESTOP, &CSEPOSDlg::OnBnClickedEposEstop)
+	ON_BN_CLICKED(IDC_HOME_PRIMARY, &CSEPOSDlg::OnBnClickedCalPrimary)
+	ON_BN_CLICKED(IDC_HOME_PRIMARY2, &CSEPOSDlg::OnBnClickedHomePrimary2)
 END_MESSAGE_MAP()
 
 BOOL CSEPOSDlg::OnInitDialog()
@@ -535,4 +537,14 @@ void CSEPOSDlg::OnBnClickedHome3()
 void CAboutDlg::OnBnClickedHome2()
 {
 
+}
+
+void CSEPOSDlg::OnBnClickedCalPrimary()
+{
+	// TODO: Add your control notification handler code here
+}
+
+void CSEPOSDlg::OnBnClickedHomePrimary2()
+{
+	// TODO: Add your control notification handler code here
 }

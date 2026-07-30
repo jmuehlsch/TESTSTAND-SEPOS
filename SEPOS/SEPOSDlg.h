@@ -124,4 +124,6 @@ public:
 	afx_msg void OnBnClickedSaveDataVel();
 	afx_msg void OnBnClickedSaveDataPos();
 	afx_msg void OnBnClickedHome3();
+	afx_msg void OnBnClickedCalPrimary();
+	afx_msg void OnBnClickedHomePrimary2();
 };

@@ -28,10 +28,13 @@
 #define IDC_EPOS2_CURR_POS              1011
 #define IDC_FIBRE_2_IN                  1012
 #define IDC_SAVE_DATA_POS2              1012
+#define IDC_HOME_PRIMARY                1012
 #define IDC_FIBRE_2_IN2                 1013
 #define IDC_FIBRE_3_IN                  1013
 #define IDC_SAVE_DATA_POS3              1013
+#define IDC_HOME_PRIMARY2               1013
 #define IDC_INCREMENTAL_STM             1014
+#define IDC_HOME_SECONDARY              1014
 #define IDC_STM_TICK                    1015
 #define IDC_EPOS_CURR_VEL2              1016
 #define IDC_EPOS_CURR_CURR              1016
