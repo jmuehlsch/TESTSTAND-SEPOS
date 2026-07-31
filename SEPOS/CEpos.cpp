@@ -7,6 +7,7 @@
 const WORD	 CEpos::_node[_nNodes] = { 1 };
 // Analog input mapping:
 const WORD	 CEpos::_aI[_nNodes] = { 1 };
+// NOTE: secondary home position stored as member in CEpos (declared in CEpos.h)
 
 CEpos::CEpos()
 {
@@ -227,8 +228,13 @@ void CEpos::SetVelUnits() {
 	VCS_SetVelocityUnits(_KeyHandle, _node[0], vel_type, vel_exp, &_ulErrorCode);
 }
 
-bool CEpos::Home(short _nodeID) {
+bool CEpos::HomePrimary(short _nodeID) {
 	short n = _nodeID;
 	VCS_ActivateHomingMode(_KeyHandle, _node[n], &_ulErrorCode);
 	return VCS_FindHome(_KeyHandle, _node[n], 35, &_ulErrorCode);
+}
+
+double CEpos::HomeSecondary(void) {
+	double baseposition = ReadPosition2();
+	return baseposition;
 }

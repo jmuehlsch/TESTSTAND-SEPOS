@@ -133,7 +133,7 @@ BEGIN_MESSAGE_MAP(CSEPOSDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_SAVE_DATA_POS, &CSEPOSDlg::OnBnClickedSaveDataPos)
 	ON_BN_CLICKED(IDC_EPOS_ESTOP, &CSEPOSDlg::OnBnClickedEposEstop)
 	ON_BN_CLICKED(IDC_HOME_PRIMARY, &CSEPOSDlg::OnBnClickedCalPrimary)
-	ON_BN_CLICKED(IDC_HOME_PRIMARY2, &CSEPOSDlg::OnBnClickedHomePrimary2)
+	ON_BN_CLICKED(IDC_HOME_SECONDARY, &CSEPOSDlg::OnBnClickedHomePrimary2)
 END_MESSAGE_MAP()
 
 BOOL CSEPOSDlg::OnInitDialog()
@@ -258,7 +258,11 @@ void CSEPOSDlg::OnTimer(UINT_PTR nIDEvent)
 	_eposCurrCurrAvg = _eposCurrCurrAvg * _eposCurrCurrFilterFrac + _eposCurrCurr * (1 - _eposCurrCurrFilterFrac);
 
 	_epos2CurrPos = _epos->ReadPosition2();
-	_epos2CurrPosDeg = 360.0 * _epos2CurrPos / 40000.0;
+	// compute secondary encoder position relative to stored home (if any)
+	long secHome = 0;
+	if (_epos) secHome = _epos->GetSecondaryHome();
+	long relPos2 = _epos2CurrPos - secHome;
+	_epos2CurrPosDeg = 360.0 * relPos2 / 40000.0;
 	_epos2CurrVel = _epos->ReadVelocity2();
 	_epos2CurrVelAvg = _epos2CurrVelAvg * _epos2CurrVelFilterFrac + _epos2CurrVel * (1 - _epos2CurrVelFilterFrac);
 
@@ -531,7 +535,7 @@ void CSEPOSDlg::OnBnClickedEposEstop()
 
 void CSEPOSDlg::OnBnClickedHome3()
 {
-	
+
 }
 
 void CAboutDlg::OnBnClickedHome2()
@@ -541,10 +545,23 @@ void CAboutDlg::OnBnClickedHome2()
 
 void CSEPOSDlg::OnBnClickedCalPrimary()
 {
-	_epos->Home(0);
+	_epos->HomePrimary(0);
 }
 
 void CSEPOSDlg::OnBnClickedHomePrimary2()
 {
-	_epos->Home(1);
+	// Read current secondary encoder position and store it in CEpos as the home reference
+	if (_epos) {
+		long pos2 = _epos->ReadPosition2();
+		_epos->SetSecondaryHome(pos2);
+
+		// Show value in status edit (if present). Since we just set the home to pos2,
+		// the relative position will be zero.
+		CString s;
+		double posDeg = 360.0 * (pos2 - _epos->GetSecondaryHome()) / 40000.0; // will be zero
+		s.Format(L"Secondary home set: %ld (%.2f deg)", pos2, posDeg);
+		if (GetDlgItem(IDC_STATUS_TEXT)) SetDlgItemTextW(IDC_STATUS_TEXT, s);
+	}
+
 }
+

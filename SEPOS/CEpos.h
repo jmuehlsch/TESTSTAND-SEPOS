@@ -31,7 +31,12 @@ public:
 	bool	SetPositionBlocking(long _pos);
 	void	Disable();
 	void	SetVelUnits();
-	bool    Home(short _nodeID);
+	bool    HomePrimary(short _nodeID);
+	double	HomeSecondary(void);
+
+	// Secondary home management
+	void SetSecondaryHome(long pos) { _secondaryHomePos = pos; }
+	long GetSecondaryHome() { return _secondaryHomePos; }
 
 	// VCS_SetVelocityRegulatorGain // change PID gains to make sure system is stable...
 	// VCS_SetVelocityRegulatorFeedForward
@@ -49,6 +54,9 @@ private:
 	static const WORD	_aI[_nNodes];		// Digital Inputs
 	
 	static const WORD	_Node = 1U;
+
+	// stored secondary home position (encoder counts)
+	long    _secondaryHomePos = 0;
 
 };
 
