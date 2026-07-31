@@ -541,10 +541,10 @@ void CAboutDlg::OnBnClickedHome2()
 
 void CSEPOSDlg::OnBnClickedCalPrimary()
 {
-	// TODO: Add your control notification handler code here
+	_epos->Home(0);
 }
 
 void CSEPOSDlg::OnBnClickedHomePrimary2()
 {
-	// TODO: Add your control notification handler code here
+	_epos->Home(1);
 }

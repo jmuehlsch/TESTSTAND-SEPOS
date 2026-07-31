@@ -31,6 +31,7 @@ public:
 	bool	SetPositionBlocking(long _pos);
 	void	Disable();
 	void	SetVelUnits();
+	bool    Home(short _nodeID);
 
 	// VCS_SetVelocityRegulatorGain // change PID gains to make sure system is stable...
 	// VCS_SetVelocityRegulatorFeedForward

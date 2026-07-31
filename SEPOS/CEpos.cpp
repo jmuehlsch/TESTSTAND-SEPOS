@@ -213,7 +213,6 @@ bool CEpos::SetPositionBlocking(long _pos)
 	return VCS_WaitForTargetReached(_KeyHandle, _node[n], 10000, &_ulErrorCode);
 }
 
-
 void CEpos::Disable()
 {
 	short n = 0;
@@ -226,4 +225,10 @@ void CEpos::SetVelUnits() {
 	byte vel_type = 0xA4;
 	char vel_exp = char(_vel_exp);
 	VCS_SetVelocityUnits(_KeyHandle, _node[0], vel_type, vel_exp, &_ulErrorCode);
+}
+
+bool CEpos::Home(short _nodeID) {
+	short n = _nodeID;
+	VCS_ActivateHomingMode(_KeyHandle, _node[n], &_ulErrorCode);
+	return VCS_FindHome(_KeyHandle, _node[n], 35, &_ulErrorCode);
 }
