@@ -169,10 +169,11 @@ void CEpos::SetPositionProfile(double _vel, double _accel, double _deccel)
 	VCS_SetPositionProfile(_KeyHandle, _node[n], 40000*vel/360, accel/6, deccel/6, &_ulErrorCode);
 }
 
-void CEpos::SetPosition(long _pos)
+void CEpos::SetPosition(double _posDeg)
 {
 	short n = 0;
-	VCS_MoveToPosition(_KeyHandle, _node[n], 40000*_pos/360, true, true, &_ulErrorCode);
+	long counts = lround(40000.0 * _posDeg / 360.0);
+	VCS_MoveToPosition(_KeyHandle, _node[n], counts, true, true, &_ulErrorCode);
 }
 
 // TODO Verify Acceleration Units
@@ -207,10 +208,14 @@ void CEpos::SetVelocity(double _vel)
 	VCS_MoveWithVelocity(_KeyHandle, _node[n], vel, &_ulErrorCode);
 }
 
-bool CEpos::SetPositionBlocking(long _pos)
+bool CEpos::SetPositionBlocking(double _posDeg)
 {
 	short n = 0;
-	VCS_MoveToPosition(_KeyHandle, _node[n], _pos, true, true, &_ulErrorCode);
+	long counts = lround(_posDeg);
+	// If caller passed degrees, convert to counts; if they already passed counts, they should use other overloads.
+	// Here we assume degrees input to be consistent with SetPosition(double).
+	counts = lround(40000.0 * _posDeg / 360.0);
+	VCS_MoveToPosition(_KeyHandle, _node[n], counts, true, true, &_ulErrorCode);
 	return VCS_WaitForTargetReached(_KeyHandle, _node[n], 10000, &_ulErrorCode);
 }
 

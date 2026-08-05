@@ -27,7 +27,7 @@ private:
 	double	_eposPosProfVel;
 	double	_eposPosProfAccel;
 	double	_eposPosProfDeccel;
-	long	_eposPosCmd;
+	double	_eposPosCmd;
 	double	_eposPosProfDefaultAccel = 1800;
 	double	_eposPosProfDefaultTarget = 0;
 	// velocity mode

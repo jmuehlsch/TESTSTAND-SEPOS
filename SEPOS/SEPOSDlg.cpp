@@ -501,7 +501,7 @@ void CSEPOSDlg::OnBnClickedSendEposPos()
 		_eposPosProfDeccel = _wtof(text);
 
 		_rEditPosCmd.GetWindowText(text);
-		_eposPosCmd = _wtoi(text);
+		_eposPosCmd = _wtof(text);
 
 		_epos->SetPositionProfile(_eposPosProfVel, _eposPosProfAccel, _eposPosProfDeccel);
 		_epos->SetPosition(_eposPosCmd);

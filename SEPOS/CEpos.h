@@ -23,12 +23,12 @@ public:
 	short	ReadCurrent(void);
 	void	ActivatePosProfMode();
 	void	SetPositionProfile(double _vel, double _accel, double _deccel);
-	void	SetPosition(long _pos);
+	void	SetPosition(double _posDeg);
 	void	ActivateVelProfMode();
 	void	SetVelocityProfile(double _accel, double _deccel);
 	void	SetVelocityGains(double _p, double _i);
 	void	SetVelocity(double _vel);
-	bool	SetPositionBlocking(long _pos);
+	bool	SetPositionBlocking(double _posDeg);
 	void	Disable();
 	void	SetVelUnits();
 	bool    HomePrimary(short _nodeID);
