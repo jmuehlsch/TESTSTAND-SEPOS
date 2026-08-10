@@ -134,6 +134,8 @@ BEGIN_MESSAGE_MAP(CSEPOSDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_EPOS_ESTOP, &CSEPOSDlg::OnBnClickedEposEstop)
 	ON_BN_CLICKED(IDC_HOME_PRIMARY, &CSEPOSDlg::OnBnClickedCalPrimary)
 	ON_BN_CLICKED(IDC_HOME_SECONDARY, &CSEPOSDlg::OnBnClickedHomePrimary2)
+	ON_BN_CLICKED(IDC_BUTTON1, &CSEPOSDlg::OnBnClickedButton1)
+	ON_EN_CHANGE(IDC_EDIT1, &CSEPOSDlg::OnEnChangeEdit1)
 END_MESSAGE_MAP()
 
 BOOL CSEPOSDlg::OnInitDialog()
@@ -565,3 +567,18 @@ void CSEPOSDlg::OnBnClickedHomePrimary2()
 
 }
 
+
+void CSEPOSDlg::OnBnClickedButton1()
+{
+	// TODO: Add your control notification handler code here
+}
+
+void CSEPOSDlg::OnEnChangeEdit1()
+{
+	// TODO:  If this is a RICHEDIT control, the control will not
+	// send this notification unless you override the CDialogEx::OnInitDialog()
+	// function and call CRichEditCtrl().SetEventMask()
+	// with the ENM_CHANGE flag ORed into the mask.
+
+	// TODO:  Add your control notification handler code here
+}

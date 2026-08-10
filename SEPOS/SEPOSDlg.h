@@ -126,4 +126,6 @@ public:
 	afx_msg void OnBnClickedHome3();
 	afx_msg void OnBnClickedCalPrimary();
 	afx_msg void OnBnClickedHomePrimary2();
+	afx_msg void OnBnClickedButton1();
+	afx_msg void OnEnChangeEdit1();
 };
