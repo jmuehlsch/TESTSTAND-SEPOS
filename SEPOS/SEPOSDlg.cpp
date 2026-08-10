@@ -500,10 +500,10 @@ void CSEPOSDlg::OnBnClickedSendEposPos()
 		_eposPosProfVel = _wtof(text);
 
 		_rEditPosProfAccel.GetWindowText(text);
-		_eposPosProfAccel = _wtof(text);
+		_eposPosProfAccel = _eposPosProfVel * 10;
 
 		_rEditPosProfDeccel.GetWindowText(text);
-		_eposPosProfDeccel = _wtof(text);
+		_eposPosProfDeccel = _eposPosProfVel * 10;
 
 		_rEditPosCmd.GetWindowText(text);
 		_eposPosCmd = _wtof(text);
@@ -580,10 +580,10 @@ void CSEPOSDlg::OnBnClickedButton1()
 	_eposPosProfVel = _wtof(text);
 
 	_rEditPosProfAccel.GetWindowText(text);
-	_eposPosProfAccel = _wtof(text);
+	_eposPosProfAccel = _eposPosProfVel * 10;
 
 	_rEditPosProfDeccel.GetWindowText(text);
-	_eposPosProfDeccel = _wtof(text);
+	_eposPosProfDeccel = _eposPosProfVel * 10;
 
 	_rEditPosCmd2.GetWindowText(text);
 	_eposPosCmd2 = _wtof(text);
