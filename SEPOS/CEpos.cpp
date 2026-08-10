@@ -102,6 +102,7 @@ WORD CEpos::ReadAnalogInput(void)
 	short n = 0;
 	VCS_GetAnalogInput(_KeyHandle, _node[n], _aI[n], &ai, &_ulErrorCode);
 
+
 	return ai;
 }
 
