@@ -167,7 +167,7 @@ void CEpos::SetPositionProfile(double _vel, double _accel, double _deccel)
 	DWORD vel = abs(int(_vel));
 	DWORD accel = abs(int(_accel));
 	DWORD deccel = abs(int(_deccel));
-	VCS_SetPositionProfile(_KeyHandle, _node[n], 40000.0*(vel/360.0), accel/6.0, deccel/6.0, &_ulErrorCode);
+	VCS_SetPositionProfile(_KeyHandle, _node[n], 40000.0*((vel/0.666)/360.0), accel/6.0, deccel/6.0, &_ulErrorCode);
 }
 
 void CEpos::SetPosition(double _posDeg)
