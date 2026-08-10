@@ -96,7 +96,7 @@ private:
 
 	CEdit _rEditPosProfVel;
 	CEdit _rEditPosProfAccel;
-	CEdit _rEditPosProfDeccel;
+	//CEdit _rEditPosProfDeccel;
 	CEdit _rEditPosCmd;
 	CEdit _rEditPosCmd2;
 

@@ -39,7 +39,7 @@
 #define IDC_EPOS_CURR_VEL2              1016
 #define IDC_EPOS_CURR_CURR              1016
 #define IDC_ENABLE_POS_CTRL             1017
-#define IDC_POS_PROF_DECCEL             1018
+//#define IDC_POS_PROF_DECCEL             1018
 #define IDC_EPOS_POS_CMD                1019
 #define IDC_POS_PROF_ACCEL              1020
 #define IDC_ENABLE_VEL_CTRL             1021

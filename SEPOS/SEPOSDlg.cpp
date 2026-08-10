@@ -102,7 +102,7 @@ void CSEPOSDlg::DoDataExchange(CDataExchange* pDX)
 
 	DDX_Control(pDX, IDC_POS_PROF_VEL, _rEditPosProfVel);
 	DDX_Control(pDX, IDC_POS_PROF_ACCEL, _rEditPosProfAccel);
-	DDX_Control(pDX, IDC_POS_PROF_DECCEL, _rEditPosProfDeccel);
+	//DDX_Control(pDX, IDC_POS_PROF_DECCEL, _rEditPosProfDeccel);
 	DDX_Control(pDX, IDC_EPOS_POS_CMD, _rEditPosCmd);
 	DDX_Control(pDX, IDC_SECOND_POS_PROF_POSITION, _rEditPosCmd2);
 
@@ -184,7 +184,7 @@ BOOL CSEPOSDlg::OnInitDialog()
 	CString posaccel_text;
 	posaccel_text.Format(L"%.0f", _eposPosProfDefaultAccel);
 	SetDlgItemTextW(IDC_POS_PROF_ACCEL, posaccel_text);
-	SetDlgItemTextW(IDC_POS_PROF_DECCEL, posaccel_text);
+	//SetDlgItemTextW(IDC_POS_PROF_DECCEL, posaccel_text);
 
 	CString velocity_text;
 	velocity_text.Format(L"%.0f", _eposGlobalDefaultVel);
@@ -502,7 +502,7 @@ void CSEPOSDlg::OnBnClickedSendEposPos()
 		_rEditPosProfAccel.GetWindowText(text);
 		_eposPosProfAccel = _eposPosProfVel * 10;
 
-		_rEditPosProfDeccel.GetWindowText(text);
+		//_rEditPosProfDeccel.GetWindowText(text);
 		_eposPosProfDeccel = _eposPosProfVel * 10;
 
 		_rEditPosCmd.GetWindowText(text);
@@ -582,7 +582,7 @@ void CSEPOSDlg::OnBnClickedButton1()
 	_rEditPosProfAccel.GetWindowText(text);
 	_eposPosProfAccel = _eposPosProfVel * 10;
 
-	_rEditPosProfDeccel.GetWindowText(text);
+	//_rEditPosProfDeccel.GetWindowText(text);
 	_eposPosProfDeccel = _eposPosProfVel * 10;
 
 	_rEditPosCmd2.GetWindowText(text);
