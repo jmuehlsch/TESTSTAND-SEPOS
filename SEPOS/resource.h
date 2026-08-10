@@ -50,7 +50,7 @@
 #define IDC_EPOS_ESTOP                  1026
 #define IDC_VEL_BATCH_TEST              1027
 #define IDC_BATCH_VEL_PROGRESS          1028
-#define IDC_Send_Second_Position_CMD    1029
+#define IDC_SEND_SECOND_POS             1029
 #define IDC_EDIT1                       1030
 #define IDC_SECOND_POS_PROF_POSITION    1030
 

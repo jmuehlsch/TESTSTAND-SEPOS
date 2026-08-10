@@ -28,6 +28,7 @@ private:
 	double	_eposPosProfAccel;
 	double	_eposPosProfDeccel;
 	double	_eposPosCmd;
+	double  _eposPosCmd2;
 	double	_eposPosProfDefaultAccel = 1800;
 	double	_eposPosProfDefaultTarget = 0;
 	// velocity mode
@@ -97,6 +98,7 @@ private:
 	CEdit _rEditPosProfAccel;
 	CEdit _rEditPosProfDeccel;
 	CEdit _rEditPosCmd;
+	CEdit _rEditPosCmd2;
 
 	CEdit _rEditVelProfAccel;
 	CEdit _rEditVelProfDeccel;

@@ -104,6 +104,8 @@ void CSEPOSDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_POS_PROF_ACCEL, _rEditPosProfAccel);
 	DDX_Control(pDX, IDC_POS_PROF_DECCEL, _rEditPosProfDeccel);
 	DDX_Control(pDX, IDC_EPOS_POS_CMD, _rEditPosCmd);
+	DDX_Control(pDX, IDC_SECOND_POS_PROF_POSITION, _rEditPosCmd2);
+
 
 	DDX_Control(pDX, IDC_VEL_PROF_ACCEL, _rEditVelProfAccel);
 	DDX_Control(pDX, IDC_VEL_PROF_DECCEL, _rEditVelProfDeccel);
@@ -134,8 +136,8 @@ BEGIN_MESSAGE_MAP(CSEPOSDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_EPOS_ESTOP, &CSEPOSDlg::OnBnClickedEposEstop)
 	ON_BN_CLICKED(IDC_HOME_PRIMARY, &CSEPOSDlg::OnBnClickedCalPrimary)
 	ON_BN_CLICKED(IDC_HOME_SECONDARY, &CSEPOSDlg::OnBnClickedHomePrimary2)
-	ON_BN_CLICKED(IDC_BUTTON1, &CSEPOSDlg::OnBnClickedButton1)
-	ON_EN_CHANGE(IDC_EDIT1, &CSEPOSDlg::OnEnChangeEdit1)
+	ON_BN_CLICKED(IDC_SEND_SECOND_POS, &CSEPOSDlg::OnBnClickedButton1)
+	//ON_EN_CHANGE(IDC_EDIT1, &CSEPOSDlg::OnEnChangeEdit1)
 END_MESSAGE_MAP()
 
 BOOL CSEPOSDlg::OnInitDialog()
@@ -192,6 +194,7 @@ BOOL CSEPOSDlg::OnInitDialog()
 	CString target_text;
 	target_text.Format(L"%.0f", _eposPosProfDefaultTarget);
 	SetDlgItemTextW(IDC_EPOS_POS_CMD, target_text);
+	SetDlgItemTextW(IDC_SECOND_POS_PROF_POSITION, target_text);
 
 	// Set timer for OnTimer:
 	if (done)	SetTimer(10, 50, NULL);
@@ -569,8 +572,24 @@ void CSEPOSDlg::OnBnClickedHomePrimary2()
 
 
 void CSEPOSDlg::OnBnClickedButton1()
+
 {
-	// TODO: Add your control notification handler code here
+	CString text;
+
+	_rEditPosProfVel.GetWindowText(text);
+	_eposPosProfVel = _wtof(text);
+
+	_rEditPosProfAccel.GetWindowText(text);
+	_eposPosProfAccel = _wtof(text);
+
+	_rEditPosProfDeccel.GetWindowText(text);
+	_eposPosProfDeccel = _wtof(text);
+
+	_rEditPosCmd2.GetWindowText(text);
+	_eposPosCmd2 = _wtof(text);
+
+	_epos->SetPositionProfile(_eposPosProfVel, _eposPosProfAccel, _eposPosProfDeccel);
+	_epos->SetPosition(_eposPosCmd2);
 }
 
 void CSEPOSDlg::OnEnChangeEdit1()
