@@ -95,7 +95,7 @@ private:
 	CButton _buttonSaveData;
 
 	CEdit _rEditPosProfVel;
-	CEdit _rEditPosProfAccel;
+	//CEdit _rEditPosProfAccel;
 	//CEdit _rEditPosProfDeccel;
 	CEdit _rEditPosCmd;
 	CEdit _rEditPosCmd2;
