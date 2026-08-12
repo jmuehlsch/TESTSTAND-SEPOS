@@ -274,7 +274,7 @@ void CSEPOSDlg::OnTimer(UINT_PTR nIDEvent)
 
 	// Write it in Edit
 	CString pos_text;	
-	pos_text.Format(L"%.2f", _eposCurrPosDeg);
+	pos_text.Format(L"%.3f", _eposCurrPosDeg);
 	SetDlgItemTextW(IDC_EPOS_CURR_POS, pos_text);
 
 	CString vel_text;	
@@ -287,7 +287,7 @@ void CSEPOSDlg::OnTimer(UINT_PTR nIDEvent)
 
 
 	CString pos_text2;
-	pos_text2.Format(L"%.2f", _epos2CurrPosDeg);
+	pos_text2.Format(L"%.3f", _epos2CurrPosDeg);
 	SetDlgItemTextW(IDC_EPOS2_CURR_POS, pos_text2);
 
 	CString vel_text2;
